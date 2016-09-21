@@ -1,0 +1,25 @@
+{% extends 'report/base.html' %}
+
+{% block username %}{{ user }}{% endblock %}
+
+{% block body %}
+<h1>My Reports</h1>
+    {% for list in object_list %}
+    <div class="row">
+        <div class="col s9">
+          <div class="card white card-size hoverable">
+                <div class="card-content black-text content-break">
+                    <span class="card-title">{{ list.report_author }}</span>
+                    <div>
+                        <a href="{% url 'report:detail_report' list.id %}">
+                            <p>タイトル: {{ list.report_title }}</p>
+                        </a>
+                    </div>
+                    <a href="{% url 'report:update_report' list.id %}">編集</a>
+                    <a class="right" href="{% url 'report:delete_report' list.id %}">削除</a>
+                </div>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

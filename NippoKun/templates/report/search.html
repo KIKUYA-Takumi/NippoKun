@@ -1,0 +1,25 @@
+{% extends "report/base.html" %}
+
+{% block body %}
+<form class="form-area" method="get", action="{% url 'report:search' %}">
+    {{ form.as_table }}
+    <input type="submit" value="検索">
+</form>
+{% if reports %}
+    <h3>検索結果</h3>
+    {% for list in reports %}
+    <div class="row">
+        <div class="col s9">
+          <div class="card white card-size hoverable">
+            <a href="{% url 'report:detail_report' list.id %}">
+                <div class="card-content black-text">
+                  <span class="card-title">{{ list.report_author }}</span>
+                  <p>タイトル: {{ list.report_title }}</p>
+                </div>
+            </a>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'report/base.html' %}
+
+{% block body %}
+{{ object.report }}
+
+<form action="" method="post" class="comment-area">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="コメントする" />
+</form>
+
+{% if form.user == form.comment_author %}
+    <a href="url 'report:update_comment"><input type="submit" value="コメントを編集する"></a>
+{% endif %}
+{% endblock %}

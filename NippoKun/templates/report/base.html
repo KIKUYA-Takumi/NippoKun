@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Report{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="{% static 'materialize/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="materialize/js/materialize.js"></script>
+    <script src="materialize/js/Modals.js"></script>
+
+</head>
+<body>
+<div class="nav-posi">
+    <nav class="light-blue accent-2 nav nav-z-index">
+        <ul>
+            <li>
+                <i class="material-icons">perm_identity</i>
+            </li>
+            <li>
+                {% block username %}{{user}}{% endblock %}
+            </li>
+            <li>
+                <i class="material-icons">work</i>
+            </li>
+            <li>
+                <a href="{% url 'report:mypage'%}">My Reports</a>
+            </li>
+            <li>
+                <i class="material-icons">mode_edit</i>
+            </li>
+            <li>
+                <a href="{% url 'report:create_report' %}">投稿</a>
+            </li>
+            <li>
+                <i class="material-icons">view_list</i>
+            </li>
+            <li>
+            <li>
+                <a href="{% url 'report:index'%}">一覧</a>
+            </li>
+            <li>
+                <i class="material-icons">search</i>
+            </li>
+            <li>
+                <a href="{% url 'report:search'%}">検索</a>
+            </li>
+            <li class="right">
+                <a href="{% url 'report:logout'%}">ログアウト</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="s3 black white-text sidebar center">
+    <h4>最近の日報</h4>
+    {% block sidebar %}
+        {% for list in object_list %}
+            <div >
+                <a href="{% url 'report:detail_report' list.id %}">
+                    {{list.report_author}}
+                    {{list.report_title}}
+                </a>
+            </div>
+        {% endfor %}
+    {% endblock %}
+</div>
+
+<div class="s9 mainframe main-z-index">
+    {% block body %}
+    {% endblock %}
+</div>
+</body>
+</html>

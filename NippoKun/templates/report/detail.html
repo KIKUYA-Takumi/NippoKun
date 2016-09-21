@@ -1,0 +1,26 @@
+{% extends 'report/base.html' %}
+
+{% block body %}
+{% if object.id %}
+    <div class="row">
+        <div class="col s9">
+          <div class="card white card-size">
+            <div class="card-content black-text content-break">
+                <h4>{{ object.report_author }}</h4>
+                <span class="card-title">{{ object.report_title }}</span>
+                <p>{{ object.report_content }}</p>
+            </div>
+            <div class="card-comment light-blue-text">
+              <a href="{% url 'report:create_comment' object.id %}">コメントを書く</a>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endif %}
+
+{% for comment in object_list %}
+{% endfor %}
+{% endblock %}
+
+{% block comment %}
+{% endblock %}
