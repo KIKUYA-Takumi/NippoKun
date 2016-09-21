@@ -13,7 +13,7 @@ admin.site.register(Report, ReportAdmin)
 
 
 class ScoreAdmin(admin.ModelAdmin):
-    list_display = ('id', 'score_author', 'score', 'evaluate_point', 'comment', 'total_score')
+    list_display = ('id', 'score_author', 'score', 'evaluate_point', 'comment', 'average_score')
 
 
 admin.site.register(Score, ScoreAdmin)
