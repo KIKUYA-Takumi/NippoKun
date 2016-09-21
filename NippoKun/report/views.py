@@ -96,7 +96,7 @@ class CreateUser(CreateView):
     template_name = 'report/user_register.html'
 
     def get_success_url(self):
-        return reverse('report:create_user')
+        return reverse('report:login')
 
 
 class CreateScore(CreateView):
