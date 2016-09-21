@@ -17,7 +17,7 @@ class SearchForm(forms.Form):
     search_word = forms.CharField(min_length=1, max_length=30)
 
 
-class ScoreForm(forms.Form):
+class ScoreForm(forms.ModelForm):
     class Meta:
         model = Score
         fields = ('score', 'evaluate_point', 'comment',)
