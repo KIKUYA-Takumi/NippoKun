@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-from secret import secret_key, db_pass, db_name, db_user, db_host, db_port
+
+from . import secret
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
+SECRET_KEY = secret.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,11 +82,11 @@ WSGI_APPLICATION = 'Nippo_kun.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': db_name,
-        'USER': db_user,
-        'PASSWORD': db_pass,
-        'HOST': db_host,
-        'PORT': db_port,
+        'NAME': secret.db_name,
+        'USER': secret.db_user,
+        'PASSWORD': secret.db_pass,
+        'HOST': secret.db_host,
+        'PORT': secret.db_port,
     }
 }
 
