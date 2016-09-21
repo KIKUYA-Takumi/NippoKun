@@ -23,5 +23,5 @@ class ScoreForm(forms.Form):
         fields = ('score', 'evaluate_point', 'comment',)
         widget = {
             'evaluate_point': forms.TextInput(attrs={'size': 30}),
-            'report_content': forms.Textarea(attrs={'cols': 50, 'rows': 20})
+            'comment': forms.Textarea(attrs={'cols': 50, 'rows': 20})
         }
