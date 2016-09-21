@@ -26,6 +26,6 @@ urlpatterns = [
     url(r'^login/', login, {'template_name': 'report/login.html'}, name='login'),
     url(r'^user_register/$', CreateUser.as_view(), name='create_user'),
     url(r'^logout/$', logout, {'template_name': 'report/logout.html'}, name='logout'),
-    url(r'^(\w+)/comment/', login_required(CreateScore.as_view()), name='create_score'),
+    url(r'^(\w+)/score/', login_required(CreateScore.as_view()), name='create_score'),
     url(r'^(?P<pk>[0-9]+)/edition/$', login_required(UpdateScore.as_view()), name='update_score'),
 ]
