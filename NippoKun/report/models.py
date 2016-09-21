@@ -19,5 +19,4 @@ class Score(models.Model):
     score = models.IntegerField()
     evaluate_point = models.TextField(max_length=30)
     comment = models.TextField(max_length=999, blank=True)
-    average_score = models.FloatField()
     scored_at = models.DateTimeField(auto_now=True)
