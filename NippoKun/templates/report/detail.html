@@ -20,6 +20,10 @@
 
 {% for comment in object_list %}
 {% endfor %}
+{% if user == object.report_author %}
+作成者
+{% endif %}
+
 {% endblock %}
 
 {% block comment %}
