@@ -12,14 +12,13 @@
             </div>
             <div class="card-comment light-blue-text">
                 <a href="{% url 'report:create_score' object.id %}">評価する</a>
+                <a class="right" href="{% url 'report:list_score' object.id %}">評価一覧　</a>
             </div>
           </div>
         </div>
     </div>
 {% endif %}
 
-{% for comment in object_list %}
-{% endfor %}
 {% if user == object.report_author %}
 作成者
 {% endif %}

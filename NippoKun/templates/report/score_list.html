@@ -1,0 +1,24 @@
+{% extends 'report/base.html' %}
+
+{% block body %}
+{% for score in object_list %}
+<div class="row">
+    <div class="col s9">
+        <div class="card white card-size hoverable">
+            <div class="card-content black-text content-break">
+                <span class="card-title">{{ score.score_author }}</span>
+                <div>
+                    <span>{{ score.score }}</span>
+                    <span>{{ score.evaluate_point }}</span>
+                </div>
+                <div>
+                    <span>{{ score.comment }}</span>
+                </div>
+                <a href="{% url 'report:delete_score' score.id %}"><span>編集</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
