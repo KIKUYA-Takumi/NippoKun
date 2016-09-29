@@ -8,11 +8,15 @@
             <a href="{% url 'report:detail_report' list.id %}">
                 <div class="card-content black-text">
                   <span class="card-title">{{ list.report_author }}</span>
-                    <span><a class="right" href="{% url 'report:list_score' list.id %}"><input type="submit"
-                                                                                               value="評価一覧"></a></span>
+
                   <p>タイトル: {{ list.report_title }}</p>
                 </div>
             </a>
+              <span>
+                    <a class="right" href="{% url 'report:list_score' list.id %}">
+                        <input type="submit" value="評価一覧">
+                    </a>
+                </span>
           </div>
         </div>
     </div>

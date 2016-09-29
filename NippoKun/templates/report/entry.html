@@ -2,10 +2,15 @@
 
 
 {% block body %}
+{% if report_id %}
+<form method="post" action="{% url 'report:update_report' %}">
+    {% else %}
     <form method="post" action="{% url 'report:create_report' %}" class="entry-area">
+        {% endif %}
         {% csrf_token %}
         <table>
-           {{ form.as_p }}
+            <div class="form-area">タイトル: {{ form.report_title }}</div>
+            <div class="content-area">本文: {{ form.report_content}}</div>
         </table>
         <input type="submit" value="投稿する" class="right">
     </form>
