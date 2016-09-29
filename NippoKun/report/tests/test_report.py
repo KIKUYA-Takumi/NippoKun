@@ -55,8 +55,10 @@ class DeleteReportTest(TestCase):
     def test_delete_report(self):
         report = self.client.post('/report/report_entries/',
                                   {'report_title': 'test title', 'report_content': 'test'})
-        response = self.client.delete(report)
-        self.assertEqual(response.status_code, 404)
+        before_count = Report.objects.count()
+        self.client.delete(report)
+        after_count = Report.objects.count()
+        self.assertEqual(before_count, after_count + 1)
 
 
 class UpdateReportContentTest(TestCase):
