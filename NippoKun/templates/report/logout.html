@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-ログアウトしました!
+{% extends 'report/outerpage_base.html' %}
 
-<a href="{% url 'report:login' %}"><input type="submit" value="ログインページへ"></a>
-</body>
-</html>
+{% block body %}
+<h1 class="logout-message">ログアウトしました!</h1>
+<a href="{% url 'report:login' %}"><input class="go-to-login-button" type="submit" value="ログインページへ"></a>
+{% endblock %}

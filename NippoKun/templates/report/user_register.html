@@ -1,20 +1,21 @@
+{% extends 'report/outerpage_base.html' %}
 
+{% block body %}
+<h1 class="register-title">ユーザ登録</h1>
+<div class="back-to-login-button">
+    <a href="{% url 'report:login' %}">
+        <input type="submit" value="ログイン画面へ">
+    </a>
+</div>
+<div class="register-form">
 
-{% if object.id %}
-    <h1>Update User</h1>
-{% else %}
-    <h1>Create User</h1>
-{% endif %}
-
-<div id="main">
     <form method="post" action="">
-        <fieldset>
+        <table>
             {% csrf_token %}
-
-            {{ form.as_p }}
-
-            <input type="submit" id="save" value="Save">
-        </fieldset>
+            {{ form.as_table }}
+        </table>
+        <input class="register-button" type="submit" id="save" value="登録">
     </form>
 </div>
-<a href="{% url 'report:login' %}"><input type="submit" value="ログイン画面へ"></a>
+
+{% endblock %}

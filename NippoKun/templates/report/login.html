@@ -1,24 +1,30 @@
+{% extends 'report/outerpage_base.html' %}
 
+{% block body %}
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
+<body class="login-background-color">
+<a class="user-register" href="{% url 'report:create_user' %}"><input type="submit" value="新規登録"></a>
+<div class="login-title">に っ ぽ う く ん</div>
+<div class="login-info">
+    <form method="post" action="{% url 'report:login' %}">
+        {% csrf_token %}
+        <table class="white">
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
 
-<form method="post" action="{% url 'report:login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+        <input class="login-button" type="submit" value="login"/>
+    </form>
+</div>
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
-
-<a href="{% url 'report:create_user' %}"><input type="submit" value="新規登録"></a>
+</body>
+{% endblock %}
 
