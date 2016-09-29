@@ -32,14 +32,13 @@ class CreateReport(CreateView):
 class ListReport(ListView):
     model = Report
     template_name = 'report/index.html'
+    queryset = Report.objects.order_by('-updated_at')
 
 
 class SideListReport(ListView):
     model = Report
     template_name = 'report/base.html'
-
-    def get_queryset(self):
-        return Report.objects.order_by('-updated_at')
+    queryset = Report.objects.order_by('-updated_at')
 
 
 class ListMyReport(ListView):
@@ -47,7 +46,7 @@ class ListMyReport(ListView):
     template_name = 'report/myreports.html'
 
     def get_queryset(self):
-        return Report.objects.filter(report_author=self.request.user)
+        return Report.objects.filter(report_author=self.request.user).order_by('-updated_at')
 
 
 class DetailReport(DetailView):
@@ -61,7 +60,7 @@ class DetailReport(DetailView):
 class UpdateReport(UpdateView):
     model = Report
     form_class = ReportForm
-    template_name = 'report/form.html'
+    template_name = 'report/edit.html'
 
     def get_success_url(self):
         return reverse('report:mypage')
@@ -102,7 +101,7 @@ class CreateUser(CreateView):
 class CreateScore(CreateView):
     model = Score
     form_class = ScoreForm
-    template_name = 'report/comment.html'
+    template_name = 'report/score.html'
 
     def form_valid(self, form):
         form.instance.report = get_object_or_404(Report, pk=self.args[0])
@@ -116,10 +115,7 @@ class CreateScore(CreateView):
 class UpdateScore(UpdateView):
     model = Score
     form_class = ScoreForm
-    template_name = 'report/comment.html'
-
-    def get_queryset(self):
-        return Score.objects.filter(score_author=self.user)
+    template_name = 'report/score_edit.html'
 
     def get_success_url(self):
         return reverse('report:index')
@@ -128,4 +124,10 @@ class UpdateScore(UpdateView):
 class DeleteScore(DeleteView):
     model = Score
     template_name = 'report/delete.html'
-    success_url = reverse_lazy('report:mypage')
+    success_url = reverse_lazy('report:index')
+
+
+class ListScore(ListView):
+    model = Score
+    template_name = 'report/score_list.html'
+    queryset = Score.objects.order_by('-scored_at')
