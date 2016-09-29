@@ -14,7 +14,8 @@
                 <div>
                     <span>{{ score.comment }}</span>
                 </div>
-                <a href="{% url 'report:delete_score' score.id %}"><span>編集</span></a>
+                <a href="{% url 'report:update_score' score.report.id score.id %}"><span>編集</span></a>
+                <a class="right" href="{% url 'report:delete_score' score.report.id score.id %}"><span>削除　</span></a>
             </div>
         </div>
     </div>

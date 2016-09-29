@@ -1,11 +1,9 @@
 {% extends 'report/base.html' %}
 
 {% block body %}
-
 <form action="" method="post" class="comment-area">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="評価する"/>
+    <input type="submit" value="編集する"/>
 </form>
-
 {% endblock %}
