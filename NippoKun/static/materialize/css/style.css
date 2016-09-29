@@ -61,6 +61,11 @@
     width:80%;
 }
 
+.content-area{
+    min-height:500%;
+}
+
+
 .entry-area{
     width:80%;
 }
@@ -68,5 +73,72 @@
 .cancel-position{
     margin-left:30%;
     margin-top:-20%;
+}
+
+.login-background-color{
+    z-index:0;
+    position:fixed;
+    background-color:#81d4fa;
+    min-width:100%;
+    min-height:100%;
+}
+
+.login-info{
+    z-index:1;
+    position:relative;
+    width:30%;
+    height:10%;
+    margin-top:10%;
+    margin-left:35%;
+}
+
+.login-button{
+    position:relative;
+    margin-left:58%;
+}
+
+.user-register{
+    margin-top:10%;
+    margin-left:90%;
+}
+
+.login-title{
+    margin-top:10%;
+    margin-left:25%;
+    font-size:500%;
+}
+
+.background-color{
+    z-index:0;
+    position:fixed;
+    background-color:#81d4fa;
+    min-width:100%;
+    min-height:100%;
+}
+
+.register-form{
+    margin-top:10%;
+    margin-left:25%;
+}
+
+.register-title{
+    margin-left:40%;
+    margin-top:8%;
+}
+
+.register-button{
+    margin-left:28%;
+}
+
+.back-to-login-button{
+    margin-left:80%
+}
+.logout-message{
+    margin-left:35%;
+    margin-top:20%;
+}
+
+.go-to-login-button{
+    margin-left:42%
 }
 
