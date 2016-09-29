@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -16,7 +17,7 @@ class Report(models.Model):
 class Score(models.Model):
     report = models.ForeignKey(Report, related_name='score')
     score_author = models.ForeignKey(User, related_name='score_author')
-    score = models.IntegerField()
+    score = models.IntegerField(default=1, validators=[MaxValueValidator(5), MinValueValidator(1)])
     evaluate_point = models.TextField(max_length=30)
     comment = models.TextField(max_length=999, blank=True)
     scored_at = models.DateTimeField(auto_now=True)
