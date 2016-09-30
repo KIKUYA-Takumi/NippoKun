@@ -13,11 +13,13 @@
                 <span class="card-title">{{ object.report_title }}</span>
                 <p>{{ object.report_content }}</p>
             </div>
-            <div class="card-comment light-blue-text">
-                <a href="{% url 'report:create_score' object.id %}">評価する</a>
-                <a class="right" href="{% url 'report:list_score' object.id %}">評価一覧　</a>
-            </div>
           </div>
+            <div>
+                <a class="score_link_position" href="{% url 'report:list_score' object.id %}">評価一覧　</a>
+                {% if user != object.report_author %}
+                <a href="{% url 'report:create_score' object.id %}">評価する</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endif %}
