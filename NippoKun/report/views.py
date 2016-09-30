@@ -35,12 +35,6 @@ class ListReport(ListView):
     queryset = Report.objects.order_by('-updated_at')
 
 
-class SideListReport(ListView):
-    model = Report
-    template_name = 'report/base.html'
-    queryset = Report.objects.order_by('-updated_at')
-
-
 class ListMyReport(ListView):
     model = Report
     template_name = 'report/myreports.html'
@@ -130,4 +124,6 @@ class DeleteScore(DeleteView):
 class ListScore(ListView):
     model = Score
     template_name = 'report/score_list.html'
-    queryset = Score.objects.order_by('-scored_at')
+
+    def get_queryset(self):
+        return Score.objects.filter(report=self.args[0]).order_by('-scored_at')
