@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.test import TestCase, Client, RequestFactory
-from .models import Report
+
+from ..models import Report
 
 
 # Create your tests here.
