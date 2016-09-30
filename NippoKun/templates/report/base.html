@@ -34,20 +34,19 @@
                 <i class="material-icons">mode_edit</i>
             </li>
             <li>
-                <a href="{% url 'report:create_report' %}">投稿</a>
+                <a href="{% url 'report:create_report' %}">日報投稿</a>
             </li>
             <li>
                 <i class="material-icons">view_list</i>
             </li>
             <li>
-            <li>
-                <a href="{% url 'report:index'%}">一覧</a>
+                <a href="{% url 'report:index'%}">日報一覧</a>
             </li>
             <li>
                 <i class="material-icons">search</i>
             </li>
             <li>
-                <a href="{% url 'report:search'%}">検索</a>
+                <a href="{% url 'report:search'%}">日報検索</a>
             </li>
             <li class="right">
                 <a href="{% url 'report:logout'%}">ログアウト</a>
@@ -56,21 +55,7 @@
     </nav>
 </div>
 
-<div class="s3 black white-text sidebar center">
-    <h4>最近の日報</h4>
-    {% block sidebar %}
-        {% for list in object_list %}
-            <div >
-                <a href="{% url 'report:detail_report' list.id %}">
-                    {{list.report_author}}
-                    {{list.report_title}}
-                </a>
-            </div>
-        {% endfor %}
-    {% endblock %}
-</div>
-
-<div class="s9 mainframe main-z-index">
+<div class="mainframe main-z-index">
     {% block body %}
     {% endblock %}
 </div>

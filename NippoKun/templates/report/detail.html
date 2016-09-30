@@ -6,6 +6,9 @@
         <div class="col s9">
           <div class="card white card-size">
             <div class="card-content black-text content-break">
+                {% if user == object.report_author %}
+                <span class="right"><a href="{% url 'report:update_report' object.id %}">編集</a></span>
+                {% endif %}
                 <h4>{{ object.report_author }}</h4>
                 <span class="card-title">{{ object.report_title }}</span>
                 <p>{{ object.report_content }}</p>
@@ -18,12 +21,4 @@
         </div>
     </div>
 {% endif %}
-
-{% if user == object.report_author %}
-作成者
-{% endif %}
-
-{% endblock %}
-
-{% block comment %}
 {% endblock %}

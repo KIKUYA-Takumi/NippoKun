@@ -1,10 +1,19 @@
 {% extends 'report/base.html' %}
 
 {% block body %}
+{% if not object_list %}
+まだ評価されていません！
+{% endif %}
+
+
 {% for score in object_list %}
 <div class="row">
     <div class="col s9">
-        <div class="card white card-size hoverable">
+        {% if user == score.score_author %}
+        <div class="card teal accent-2 card-size hoverable">
+            {% else %}
+            <div class="card white card-size hoverable">
+                {% endif %}
             <div class="card-content black-text content-break">
                 <span class="card-title">{{ score.score_author }}</span>
                 <div>
@@ -14,12 +23,15 @@
                 <div>
                     <span>{{ score.comment }}</span>
                 </div>
+                {% if user == score.score_author %}
                 <a href="{% url 'report:update_score' score.report.id score.id %}"><span>編集</span></a>
                 <a class="right" href="{% url 'report:delete_score' score.report.id score.id %}"><span>削除　</span></a>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
-{% endfor %}
+
+    {% endfor %}
 
 {% endblock %}

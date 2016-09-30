@@ -4,10 +4,13 @@
 
 {% block body %}
 <h1>My Reports</h1>
+{% if not object_list %}
+まだ日報は投稿されていません！
+{% endif %}
     {% for list in object_list %}
     <div class="row">
         <div class="col s9">
-          <div class="card white card-size hoverable">
+            <div class="card teal accent-2 card-size hoverable">
                 <div class="card-content black-text content-break">
                     <span class="card-title">{{ list.report_author }}</span>
                     <div>
@@ -22,4 +25,8 @@
         </div>
     </div>
     {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+
 {% endblock %}
