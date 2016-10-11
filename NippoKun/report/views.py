@@ -17,8 +17,7 @@ from .models import Report, Score
 
 class CreateReport(CreateView):
     model = Report
-    form = ReportForm
-    fields = ('report_title', 'report_content')
+    form_class = ReportForm
     template_name = 'report/entry.html'
 
     def form_valid(self, form):
