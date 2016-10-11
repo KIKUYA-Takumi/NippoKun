@@ -46,11 +46,11 @@
 }
 
 .comment-area{
-    width:80%;
+    height:500px;
 }
 
 .content-area{
-    min-height:500%;
+    cols:200;
 }
 
 
