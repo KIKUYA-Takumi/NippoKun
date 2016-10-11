@@ -7,15 +7,15 @@
         {% csrf_token %}
         <div class="row">
             <div class="input-field col s6">
+                タイトル:
                 <div id="first_name2" type="text" class="validate">{{ form.report_title }}</div>
-                <label class="active" for="first_name2">タイトル</label>
             </div>
         </div>
 
         <div class="row">
-            <div class="input-field col s12">
+            <div>
                 本文:
-                <div class="materialize-textarea">{{ form.report_content }}</div>
+                <div class="content-area materialize-textarea">{{ form.report_content }}</div>
 
             </div>
         </div>

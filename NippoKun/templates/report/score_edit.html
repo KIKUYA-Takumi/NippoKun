@@ -1,9 +1,36 @@
 {% extends 'report/base.html' %}
 
 {% block body %}
-<form action="" method="post" class="comment-area">
+<form action="" method="post" class="col s10">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="row">
+        <div class="input-field col s6">
+            1～5点で採点しましょう！
+            <div>
+                {{ form.score }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            本文:
+            <div class="content-area materialize-textarea">
+                {{ form.evaluate_point }}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
+            コメント(任意):
+            <div class="content-area materialize-textarea s10">
+                {{ form.comment }}
+            </div>
+
+        </div>
+    </div>
     <input type="submit" value="編集する"/>
 </form>
 {% endblock %}
