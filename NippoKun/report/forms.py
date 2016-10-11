@@ -7,10 +7,6 @@ class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
         fields = ('report_title', 'report_content')
-        widgets = {
-            'report_title': forms.TextInput(attrs={'size': 50,}),
-            'report_content': forms.Textarea(attrs={'rows': 50, 'cols': 50})
-        }
 
 
 class SearchForm(forms.Form):
@@ -21,7 +17,3 @@ class ScoreForm(forms.ModelForm):
     class Meta:
         model = Score
         fields = ('score', 'evaluate_point', 'comment',)
-        widgets = {
-            'evaluate_point': forms.TextInput(attrs={'size': 30,}),
-            'comment': forms.Textarea(attrs={'cols': 50, 'rows': 20,}),
-        }
