@@ -1,6 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="ja">
+{% block head %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Report{% endblock %}</title>
@@ -10,10 +11,12 @@
     <link href="{% static 'materialize/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="materialize/js/materialize.js"></script>
+    <script src="{% static 'materialize/js/materialize.js' %}"></script>
     <script src="materialize/js/Modals.js"></script>
+    <script src="{% static 'materialize/js/Textarea.js' %}"></script>
 
 </head>
+{% endblock %}
 <body>
 <div class="nav-posi">
     <nav class="light-blue accent-2 nav nav-z-index">
