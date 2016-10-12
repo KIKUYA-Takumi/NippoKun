@@ -3,34 +3,35 @@
 {% block body %}
 <form action="" method="post" class="col s10">
     {% csrf_token %}
-    <div class="row">
-        <div class="input-field col s6">
-            1～5点で採点しましょう！
-            <div>
-                {{ form.score }}
-            </div>
-        </div>
+    <div class="row s10">
+        {{ form.score.label }}
+        {% for score in form.score %}
+        {{ score }}
+        {% endfor %}
     </div>
 
-    <div class="row">
-        <div>
-            本文:
-            <div class="content-area materialize-textarea">
-                {{ form.evaluate_point }}
-            </div>
-
-        </div>
+    <div class="row input-field">
+        {{ form.errors }}
+        {{ form.evaluate_point.label }}
+        {{ form.evaluate_point }}
     </div>
 
+    <div class="row s10">
+        {{ form.comment.label }}（任意）
     <div class="row">
-        <div>
-            コメント(任意):
-            <div class="content-area materialize-textarea s10">
-                {{ form.comment }}
-            </div>
-
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form.comment }}
+                        <label for="id_comment">Textarea</label>
         </div>
+                </div>
+            </form>
+        </div>
+
     </div>
-    <input type="submit" value="編集する"/>
+
+        <input type="submit" value="編集する"/>
 </form>
 {% endblock %}
