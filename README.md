@@ -13,11 +13,11 @@
 日報採点
 
 ###Requirements
-Django 1.9
 Python 3.5
-psycopg2 2.6.1
-PostgreSQL==9.6
 
+PostgreSQL 9.6
+
+Materialize
 
 ###License
 MIT

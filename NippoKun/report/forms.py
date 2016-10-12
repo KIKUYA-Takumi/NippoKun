@@ -21,6 +21,9 @@ class ScoreForm(forms.ModelForm):
     class Meta:
         model = Score
         fields = ('score', 'evaluate_point', 'comment',)
+        score = forms.ChoiceField(
+            choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)),
+        )
         widgets = {
             'evaluate_point': forms.TextInput(attrs={'size': 40}),
             'comment': forms.Textarea(attrs={'cols': 50, 'rows': 40})
