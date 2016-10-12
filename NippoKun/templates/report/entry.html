@@ -5,21 +5,7 @@
 <div class="row">
     <form method="post" action="{% url 'report:create_report' %}" class="col s10">
         {% csrf_token %}
-        <div class="row">
-            <div class="input-field col s6">
-                タイトル:
-                <div id="first_name2" type="text" class="validate">{{ form.report_title }}</div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div>
-                本文:
-                <div class="content-area materialize-textarea">{{ form.report_content }}</div>
-
-            </div>
-        </div>
-
+        {{ form.as_p }}
         <input type="submit" value="投稿する" class="right">
     </form>
 </div>

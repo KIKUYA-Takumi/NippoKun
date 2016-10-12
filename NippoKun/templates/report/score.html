@@ -3,7 +3,25 @@
 {% block body %}
 <form action="" method="post" class="col s10">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="row s10">
+        {{ form.score.label }}
+        {% for score in form.score %}
+        {{ score }}
+        {% endfor %}
+    </div>
+
+    <div class="row input-field">
+        {{ form.errors }}
+        {{ form.evaluate_point.label }}
+        {{ form.evaluate_point }}
+    </div>
+
+    <div class="row s10">
+        {{ form.comment.label }}（任意）
+        {{ form.comment }}
+    </div>
+
+
     <input type="submit" value="評価する"/>
 </form>
 

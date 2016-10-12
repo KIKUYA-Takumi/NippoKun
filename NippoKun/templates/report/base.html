@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="{% static 'materialize/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="{% static 'materialize/js/materialize.js' %}"></script>
-    <script src="materialize/js/Modals.js"></script>
-    <script src="{% static 'materialize/js/Textarea.js' %}"></script>
 
 </head>
 {% endblock %}
@@ -62,5 +58,8 @@
     {% block body %}
     {% endblock %}
 </div>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{% static 'materialize/js/materialize.js' %}"></script>
+<script src="{% static 'materialize/js/Textarea.js' %}"></script>
 </body>
 </html>
