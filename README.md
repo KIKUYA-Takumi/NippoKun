@@ -9,8 +9,12 @@
 ![](report_entry.jpg)
 
 日報一覧
+![](index.jpg)
+
 
 日報採点
+![](score.jpg)
+
 
 ###Requirements
 Python 3.5
