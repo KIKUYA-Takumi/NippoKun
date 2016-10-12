@@ -14,7 +14,7 @@ from .views import (
     CreateScore,
     UpdateScore,
     DeleteScore,
-    ListScore
+    ListScore,
 )
 
 urlpatterns = [
@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'^(\w+)/score/', login_required(CreateScore.as_view()), name='create_score'),
     url(r'^(\w+)/edition/(?P<pk>[0-9]+)/$', login_required(UpdateScore.as_view()), name='update_score'),
     url(r'^(\w+)/delete/(?P<pk>[0-9]+)/$', login_required(DeleteScore.as_view()), name='delete_score'),
-    url(r'^(\w+)/score_list/$', login_required(ListScore.as_view()), name='list_score')
+    url(r'^(\w+)/score_list/$', login_required(ListScore.as_view()), name='list_score'),
 ]
