@@ -5,7 +5,7 @@
 
 ###デモ
 日報作成
-!(/NippoKun/blob/master/report_entry.jpg)
+![](.report_entry.jpg)
 
 日報一覧
 
