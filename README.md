@@ -5,8 +5,7 @@
 
 ###デモ
 日報作成
-
-日報編集
+https://raw.github.com/wiki/KIKUYA-Takumi/NippoKun/report_entry.jpg
 
 日報一覧
 
