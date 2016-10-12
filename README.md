@@ -5,7 +5,7 @@
 
 ###デモ
 日報作成
-https://raw.github.com/wiki/KIKUYA-Takumi/NippoKun/report_entry.jpg
+(/NippoKun/blob/master/report_entry.jpg)
 
 日報一覧
 
