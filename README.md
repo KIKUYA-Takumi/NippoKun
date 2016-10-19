@@ -7,11 +7,11 @@
 日報作成
 ![](/images/report_entry.jpg)
 日報編集
-
+![](NippoKun/images/report_edit.jpg)
 日報一覧
-
+![](NippoKun/images/index.jpg)
 日報採点
-
+![](NippoKun/images/score.jpg)
 ###Requirements
 Python 3.5
 
