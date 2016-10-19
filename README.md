@@ -32,7 +32,7 @@ alter role ユーザー名 with password 'パスワード';
 
 create database 'データベース名' owner 'ユーザー名';
 
-作成したデータベースの情報をsecret.pyに以下のように記述
+####作成したデータベースの情報をsecret.pyに以下のように記述
 
 db_user = 'ユーザ名'
 
