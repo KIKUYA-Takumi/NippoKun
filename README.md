@@ -30,10 +30,10 @@ alter role ユーザー名 with password 'パスワード';
 create database 'データベース名' owner 'ユーザー名';
 
 作成したデータベースの情報をsecret.pyに以下のように記述
-db_user = 'ユーザ名'
-db_pass = 'パスワード'
-db_host = 'localhost'
-db_port = '5432'
+  db_user = 'ユーザ名'
+　　db_pass = 'パスワード'
+　　db_host = 'localhost'
+　　db_port = '5432'
 
 ####SECRET_KEYをsecret.pyに以下のように記述
 secret_key = 'シークレットキーにする情報'
@@ -42,7 +42,8 @@ secret_key = 'シークレットキーにする情報'
 manage.pyのある階層に移動し、以下の順で実行する
 
   1.python manage.py makemigrations
-  2.python manage.py migrate  
+
+  2.python manage.py migrate
 
 ####Djangoの起動
 manage.pyのある階層に移動し、以下を実行する
