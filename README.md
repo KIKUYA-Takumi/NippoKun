@@ -5,17 +5,12 @@
 
 ###デモ
 日報作成
+![](/images/report_entry.jpg)
+日報編集
 
-![](report_entry.jpg)
-
-日報一覧(色がついている投稿が自身の投稿)
-
-![](index.jpg)
-
+日報一覧
 
 日報採点
-![](score.jpg)
-
 
 ###Requirements
 Python 3.5
