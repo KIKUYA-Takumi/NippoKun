@@ -25,15 +25,22 @@ Materialize 0.97.6
 
 ####データベースの作成
 PostgreSQLでユーザ作成を行う。
+
 create user 'ユーザー名';
+
 alter role ユーザー名 with password 'パスワード';
+
 create database 'データベース名' owner 'ユーザー名';
 
 作成したデータベースの情報をsecret.pyに以下のように記述
-  db_user = 'ユーザ名'
-　　db_pass = 'パスワード'
-　　db_host = 'localhost'
-　　db_port = '5432'
+
+db_user = 'ユーザ名'
+
+db_pass = 'パスワード'
+
+db_host = 'localhost'
+
+db_port = '5432'
 
 ####SECRET_KEYをsecret.pyに以下のように記述
 secret_key = 'シークレットキーにする情報'
