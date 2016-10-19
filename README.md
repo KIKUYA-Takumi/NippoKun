@@ -17,7 +17,8 @@ Python 3.5
 
 PostgreSQL 9.6
 
-Materialize
+Materialize 0.97.6
+
 
 ###License
 MIT
