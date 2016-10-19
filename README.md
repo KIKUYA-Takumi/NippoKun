@@ -6,10 +6,10 @@
 ###デモ
 日報作成
 ![](NippoKun/images/report_entry.jpg)
-日報編集
-![](NippoKun/images/report_edit.jpg)
+
 日報一覧
 ![](NippoKun/images/index.jpg)
+
 日報採点
 ![](NippoKun/images/score.jpg)
 ###Requirements
@@ -19,6 +19,26 @@ PostgreSQL 9.6
 
 Materialize 0.97.6
 
+###SetUp
+####secret.pyに記述する情報
+使用するデータベースの情報(NAME, USER, PASSWORD, HOST, PORT)とSECRET_KEYの情報を記述する。
+
+####データベースの作成
+PostgreSQLでユーザ作成を行う。
+create user 'ユーザー名';
+alter role ユーザー名 with password 'パスワード';
+create database 'データベース名' owner 'ユーザー名';
+
+作成したデータベースの情報をsecret.pyに以下のように記述
+db_user = 'ユーザ名'
+db_pass = 'パスワード'
+db_host = 'localhost'
+db_port = '5432'
+
+####SECRET_KEYをsecret.pyに以下のように記述
+secret_key = 'シークレットキーにする情報'
+
+###
 
 ###License
 MIT
