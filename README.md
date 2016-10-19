@@ -40,12 +40,12 @@ secret_key = 'シークレットキーにする情報'
 
 ####Djangoのセットアップ
 manage.pyのある階層に移動し、以下の順で実行する
-1.python manage.py makemigrations
-2.python manage.py migrate
+  1.python manage.py makemigrations
+  2.python manage.py migrate
 
 ####Djangoの起動
 manage.pyのある階層に移動し、以下を実行する
-python manage.py runserver  
+python manage.py runserver
 
 
 ##License
