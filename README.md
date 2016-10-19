@@ -7,7 +7,7 @@
 日報作成
 ![](NippoKun/images/report_entry.jpg)
 
-日報一覧
+日報一覧(色がついている投稿が自身の投稿)
 ![](NippoKun/images/index.jpg)
 
 日報採点
