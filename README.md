@@ -45,7 +45,7 @@ manage.pyのある階層に移動し、以下の順で実行する
 
 ####Djangoの起動
 manage.pyのある階層に移動し、以下を実行する
-python manage.py runserver
+python manage.py runserver  
 
 
 ##License
