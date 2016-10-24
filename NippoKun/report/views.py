@@ -121,8 +121,8 @@ class DeleteScore(DeleteView):
 
 
 class ListScore(ListView):
-    model = Score
+    model = Score,
     template_name = 'report/score_list.html'
 
     def get_queryset(self):
-        return Score.objects.filter(report=self.args[0]).order_by('-scored_at')
+        return Score.objects.filter(report=self.kwargs['report']).order_by('-scored_at')
