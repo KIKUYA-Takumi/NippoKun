@@ -16,7 +16,6 @@ class Score(models.Model):
     report = models.ForeignKey(Report, related_name='score')
     score_author = models.ForeignKey(User, related_name='score_author')
     score = models.IntegerField(
-        max_length=1,
         default=3,
         choices=(
             (1, 1), (2, 2), (3, 3), (4, 4), (5, 5)
