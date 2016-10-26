@@ -92,12 +92,12 @@ class CreateUser(CreateView):
 
 
 class CreateScore(CreateView):
-    model = Score
+    model = Score, Report
     form_class = ScoreForm
     template_name = 'report/score.html'
 
     def form_valid(self, form):
-        form.instance.report = get_object_or_404(Report, pk=self.args[0])
+        form.instance.report = get_object_or_404(Report, pk=self.kwargs['report'])
         form.instance.score_author = self.request.user
         return super(CreateScore, self).form_valid(form)
 
