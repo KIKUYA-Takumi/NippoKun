@@ -28,8 +28,8 @@ urlpatterns = [
     url(r'^login/$', login, {'template_name': 'report/login.html'}, name='login'),
     url(r'^logout/$', logout, {'template_name': 'report/logout.html'}, name='logout'),
     url(r'^user_register/$', CreateUser.as_view(), name='create_user'),
-    url(r'^(?P<report>[0-9]+)/score/', login_required(CreateScore.as_view()), name='create_score'),
-    url(r'^edition/(?P<pk>[0-9]+)/$', login_required(UpdateScore.as_view()), name='update_score'),
-    url(r'^delete/(?P<pk>[0-9]+)/$', login_required(DeleteScore.as_view()), name='delete_score'),
-    url(r'^(?P<report>[0-9]+)/score_list/$', login_required(ListScore.as_view()), name='list_score'),
+    url(r'^(\w+)/score/', login_required(CreateScore.as_view()), name='create_score'),
+    url(r'^(\w+)/edition/(?P<pk>[0-9]+)/$', login_required(UpdateScore.as_view()), name='update_score'),
+    url(r'^(\w+)/delete/(?P<pk>[0-9]+)/$', login_required(DeleteScore.as_view()), name='delete_score'),
+    url(r'^(\w+)/score_list/$', login_required(ListScore.as_view()), name='list_score'),
 ]
