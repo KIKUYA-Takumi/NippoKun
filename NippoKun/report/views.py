@@ -92,12 +92,12 @@ class CreateUser(CreateView):
 
 
 class CreateScore(CreateView):
-    model = Score
+    model = Score, Report
     form_class = ScoreForm
     template_name = 'report/score.html'
 
     def form_valid(self, form):
-        form.instance.report = get_object_or_404(Report, pk=self.args[0])
+        form.instance.report = get_object_or_404(Report, pk=self.kwargs['report'])
         form.instance.score_author = self.request.user
         return super(CreateScore, self).form_valid(form)
 
@@ -121,8 +121,8 @@ class DeleteScore(DeleteView):
 
 
 class ListScore(ListView):
-    model = Score
+    model = Score,
     template_name = 'report/score_list.html'
 
     def get_queryset(self):
-        return Score.objects.filter(report=self.args[0]).order_by('-scored_at')
+        return Score.objects.filter(report=self.kwargs['report']).order_by('-scored_at')
