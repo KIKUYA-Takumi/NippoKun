@@ -23,11 +23,6 @@ class CreateScoreTest(TestCase):
                           })
         self.request.report = Report.objects.get(pk=1)
 
-    """
-        status_code = 302: created new score.
-        status_code = 200: not create new score.
-    """
-
     def test_create_score_0(self):
         self.client.post('/report/1/score/',
                          {'report': self.request.report,
@@ -67,6 +62,14 @@ class CreateScoreTest(TestCase):
                           'comment': 'comment'})
         count = Score.objects.count()
         self.assertEqual(count, 0)
+
+    def test_create_score_redirect_to_score(self):
+        response = self.client.get('/report/1/score/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_create_score_redirect_to_crate_report(self):
+        response = self.client.get('/report/2/score/')
+        self.assertEqual(response.status_code, 302)
 
 
 class DeleteScoreTest(TestCase):
@@ -153,17 +156,51 @@ class UpdateScoreTest(TestCase):
         self.request.score = Score.objects.get(pk=1)
         self.assertEqual(self.request.score.evaluate_point, 'nice')
 
-    report = {
-        'report_author': self.request.report.report_author,
-        'report_title': self.request.report.report_title,
-        'report_content': 'update content'
-    }
-    self.client.post('/report/1/edition/', report)
-    self.request.report = Report.objects.get(pk=1)
-    self.assertEqual(self.request.report.report_content, 'update content')
+        report = {
+            'report_author': self.request.report.report_author,
+            'report_title': self.request.report.report_title,
+            'report_content': 'update content'
+        }
+        self.client.post('/report/1/edition/', report)
+        self.request.report = Report.objects.get(pk=1)
+        self.assertEqual(self.request.report.report_content, 'update content')
 
 
+class ListScoreTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.client.post('/report/user_register/',
+                         {'username': 'john',
+                          'password1': 'johnpass',
+                          'password2': 'johnpass'})
+        self.client.login(username='john', password='johnpass')
+        request_factory = RequestFactory()
+        self.request = request_factory.get('/report/mypage/')
+        self.request.user = User.objects.get(pk=1)
+        self.client.post('/report/report_entries/',
+                         {'report_author': self.request.user,
+                          'report_title': 'test title',
+                          'report_content': 'test'
+                          })
+        self.request.report = Report.objects.get(pk=1)
+        self.client.post('/report/1/score/',
+                         {'report': self.request.report,
+                          'score_author': self.request.user,
+                          'score': 0,
+                          'evaluate_point': 'good job',
+                          'comment': 'comment'})
 
+        self.client.post('/report/1/score/',
+                         {'report': self.request.report,
+                          'score_author': self.request.user,
+                          'score': 0,
+                          'evaluate_point': 'good job',
+                          'comment': 'comment'})
 
+    def test_list_score_redirect_to_list_score(self):
+        response = self.client.get('/report/1/score_list/')
+        self.assertEqual(response.status_code, 200)
 
-
+    def test_list_score_redirect_to_create_report(self):
+        response = self.client.get('/report/2/score_list/')
+        self.assertEqual(response.status_code, 302)
