@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.db.models import Q
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -96,6 +96,11 @@ class CreateScore(CreateView):
     form_class = ScoreForm
     template_name = 'report/score.html'
 
+    def get(self, request, *args, **kwargs):
+        if not Report.objects.filter(id=kwargs['report']):
+            return redirect('report:create_report')
+        return super(CreateScore, self).get(request, *args, **kwargs)
+
     def form_valid(self, form):
         form.instance.report = get_object_or_404(Report, pk=self.kwargs['report'])
         form.instance.score_author = self.request.user
@@ -121,8 +126,13 @@ class DeleteScore(DeleteView):
 
 
 class ListScore(ListView):
-    model = Score,
+    model = Score,Report
     template_name = 'report/score_list.html'
+
+    def get(self, request, *args, **kwargs):
+        if not Report.objects.filter(id=kwargs['report']):
+            return redirect('report:create_report')
+        return super(ListScore, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
         return Score.objects.filter(report=self.kwargs['report']).order_by('-scored_at')
