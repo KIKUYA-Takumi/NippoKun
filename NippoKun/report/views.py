@@ -12,6 +12,7 @@ from .forms import ReportForm, SearchForm, ScoreForm
 from .models import Report, Score
 
 
+
 # Create your views here.
 
 
