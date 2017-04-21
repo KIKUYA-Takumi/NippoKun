@@ -28,10 +28,10 @@ create database 'データベース名' owner 'ユーザー名';
 
 #### 作成したデータベースの情報をsecret.pyに以下のように記述し、setting.pyと同じ階層に記述する。ユーザ名とパスワードは使用するデータベース作成時に登録したものを記述
 
-db_user = 'ユーザ名'
-db_pass = 'パスワード'
-db_host = 'localhost'
-db_port = '5432'
+db_user = 'ユーザ名'  
+db_pass = 'パスワード'  
+db_host = 'localhost'  
+db_port = '5432'  
 
 #### SECRET_KEYをsecret.pyに以下のように記述
 secret_key = 'シークレットキーにする情報（他人から推測されない文字列）'
@@ -39,8 +39,7 @@ secret_key = 'シークレットキーにする情報（他人から推測され
 #### Djangoのセットアップ
 manage.pyのある階層に移動し、以下の順で実行する
 
-  1.python manage.py makemigrations
-
+  1.python manage.py makemigrations  
   2.python manage.py migrate
 
   3.管理者を作成する場合、python manage.py createsuperuser
