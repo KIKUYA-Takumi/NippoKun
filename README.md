@@ -13,12 +13,13 @@
 
 日報採点
 ![](NippoKun/images/score.jpg)
-##Requirements
+
+## Requirements
 Python 3.5
 
 PostgreSQL 9.6
 
-##SetUp
+## SetUp
 
 #### データベースの作成
 PostgreSQLでユーザ作成を行う。
