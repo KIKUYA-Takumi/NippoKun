@@ -20,6 +20,9 @@ PostgreSQL 9.6
 
 ## SetUp
 
+#### 必要なライブラリのインストール
+pip install -r requirements.txt
+
 #### データベースの作成
 PostgreSQLでユーザ作成を行う。  
 create user 'ユーザー名';  
