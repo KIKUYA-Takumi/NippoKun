@@ -15,16 +15,16 @@
 ![](NippoKun/images/score.jpg)
 
 ## Requirements
-Python 3.5
+Python 3.5  
 PostgreSQL 9.6
 
 ## SetUp
 
 #### データベースの作成
-PostgreSQLでユーザ作成を行う。
-create user 'ユーザー名';
-alter role ユーザー名 with password 'パスワード';
-create database 'データベース名' owner 'ユーザー名';
+PostgreSQLでユーザ作成を行う。  
+create user 'ユーザー名';  
+alter role ユーザー名 with password 'パスワード';  
+create database 'データベース名' owner 'ユーザー名';  
 
 #### 作成したデータベースの情報をsecret.pyに以下のように記述し、setting.pyと同じ階層に記述する。ユーザ名とパスワードは使用するデータベース作成時に登録したものを記述
 
